@@ -1,4 +1,4 @@
-import * as actions from "./index.js";
+import * as actions from "./actions.js";
 
 describe("actions", () => {
   it("should create an action to update game state", () => {

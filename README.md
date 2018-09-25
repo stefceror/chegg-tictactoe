@@ -21,23 +21,9 @@ To run the tests run `yarn test`.  This will open up the jest test watcher, whic
 
 Dependencies: an existing Redux store
 
-1. To embed the component into another React app, copy the following files to your app:
-- `src/components/tic_tac_toe/TicTacToe.css`
-- `src/components/tic_tac_toe/TicTacToe.js`
-- `src/reducers/index.js`
-- `src/actions/index.js`
-
-1. Include the `ticTacToeReducer` in your combineReducers method
-
-1. Instantiate a `TicTacToe` component.  If you are not using react-redux's `Provider` component, you can pass your store in as a prop.  No other props are required.
-
-## Proposed process
-
-Move all the required files into the `components/tic_tac_toe` directory (and rename them according to function).  Use a default prop to create a store if one is not passed in.  Then the process to embed is simplified to:
-
 1. Copy the `/src/components/tic_tac_toe` folder
-1. If you are using Redux, add the `ticTacToeReducer` to your `combineReducers` method
-1. Instantiate a `TicTacToe` component.  No props are required.
+1. Include the `ticTacToeReducer` in your combineReducers method
+1. Instantiate a `TicTacToe` component.  If you are not using react-redux's `Provider` component, you can pass a store in as a prop.  No other props are required.
 
 # TODO
 

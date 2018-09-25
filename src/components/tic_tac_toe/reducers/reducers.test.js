@@ -1,4 +1,4 @@
-import { ticTacToeReducer } from "./index.js";
+import { ticTacToeReducer } from "./reducers.js";
 
 const initialState = {
   board: [[null, null, null], [null, null, null], [null, null, null]],

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { updateGameState, resetGame } from "../../actions/index.js";
+import { updateGameState, resetGame } from "./actions/actions.js";
 
 import "./TicTacToe.css";
 
