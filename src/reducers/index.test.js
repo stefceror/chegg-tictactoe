@@ -1,4 +1,4 @@
-import { rootReducer } from "./index.js";
+import { ticTacToeReducer } from "./index.js";
 
 const initialState = {
   board: [[null, null, null], [null, null, null], [null, null, null]],
@@ -10,12 +10,12 @@ const initialState = {
 
 describe("tic-tac-toe reducer", () => {
   it("should return the initial state", () => {
-    expect(rootReducer(undefined, {})).toEqual(initialState);
+    expect(ticTacToeReducer(undefined, {})).toEqual(initialState);
   });
 
   it("should update the game board when a valid move is made", () => {
     expect(
-      rootReducer(initialState, {
+      ticTacToeReducer(initialState, {
         type: "UPDATE_GAME",
         payload: { i: 0, j: 2 }
       })
@@ -54,7 +54,7 @@ describe("tic-tac-toe reducer", () => {
 
   it("should reset the game when the reset action is emitted", () => {
     expect(
-      rootReducer(initialState, {
+      ticTacToeReducer(initialState, {
         type: "RESET_GAME"
       })
     ).toEqual({

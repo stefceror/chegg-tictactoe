@@ -4,13 +4,7 @@ import "./index.css";
 import TicTacToe from "./components/tic_tac_toe/TicTacToe.js";
 import registerServiceWorker from "./registerServiceWorker";
 
-import { Provider } from "react-redux";
 import { store } from "./store/index.js";
 
-ReactDOM.render(
-  <Provider store={store}>
-    <TicTacToe />
-  </Provider>,
-  document.getElementById("root")
-);
+ReactDOM.render(<TicTacToe store={store} />, document.getElementById("root"));
 registerServiceWorker();

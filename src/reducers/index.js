@@ -91,7 +91,7 @@ const resetGame = () => {
   return initialState;
 };
 
-export const rootReducer = (
+export const ticTacToeReducer = (
   state = Object.assign(initialState, {}),
   action
 ) => {

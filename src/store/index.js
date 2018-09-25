@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from "redux";
-import { rootReducer } from "../reducers/index.js";
+import { ticTacToeReducer } from "../reducers/index.js";
 
 export const store = createStore(
   combineReducers({
-    game: rootReducer
+    game: ticTacToeReducer
   })
 );
