@@ -32,10 +32,10 @@ Dependencies: an existing Redux store
 - Write more component tests
 
 ## Modularity and Reusability
-- Reorganize file structure (to make it easier to add the component to other projects)
 - Scope actions to component instance (so there can be more than one per page)
 - Add default store prop (in case importing application doesn't use Redux)
 - Build a slug that includes all of the code required to use the component, so only one file needs to be copied.
+- Make child components for the game board and banner
 
 ## Code quality/readability/maintainability
 - Add `Immutable.js` to keep from mutating game board
@@ -44,6 +44,7 @@ Dependencies: an existing Redux store
 - Maintain game state in localstorage with `redux-storage` (to persist through refresh)
 - Add notification for invalid move
 - Add traditional line through winning symbols
+- Extend to allow more than 3 rows/columns
 
 ## Base project info
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
