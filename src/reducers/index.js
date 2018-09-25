@@ -1,5 +1,7 @@
+const emptyBoard = [[null, null, null], [null, null, null], [null, null, null]];
+
 const initialState = {
-  board: [[null, null, null], [null, null, null], [null, null, null]],
+  board: [[...emptyBoard[0]], [...emptyBoard[1]], [...emptyBoard[2]]],
   currentPlayer: "X",
   numberOfMoves: 0,
   gameEnded: false,
@@ -52,15 +54,18 @@ const checkForGameEnd = state => {
   if (state.numberOfMoves === 8) {
     gameEnded = true;
   }
-  console.log(gameWon, gameEnded);
   return { gameWon, gameEnded };
 };
 
-const switchCurrentPlayer = state => {
-  if (state.currentPlayer === "X") {
-    return "O";
+const switchCurrentPlayer = (state, gameEnded) => {
+  if (!gameEnded) {
+    if (state.currentPlayer === "X") {
+      return "O";
+    } else {
+      return "X";
+    }
   } else {
-    return "X";
+    return state.currentPlayer;
   }
 };
 
@@ -69,15 +74,30 @@ const updateGameState = (state, move) => {
     const numberOfMoves = state.numberOfMoves + 1;
     const board = updateGameBoard(state, move);
     const { gameWon, gameEnded } = checkForGameEnd(state);
-    const currentPlayer = switchCurrentPlayer(state);
+    const currentPlayer = switchCurrentPlayer(state, gameEnded);
     return { currentPlayer, board, numberOfMoves, gameWon, gameEnded };
   } else {
     return state;
   }
 };
 
-export const rootReducer = (state = initialState, action) => {
+const resetGame = () => {
+  initialState.board = [
+    [...emptyBoard[0]],
+    [...emptyBoard[1]],
+    [...emptyBoard[2]]
+  ];
+
+  return initialState;
+};
+
+export const rootReducer = (
+  state = Object.assign(initialState, {}),
+  action
+) => {
   switch (action.type) {
+    case "RESET_GAME":
+      return resetGame();
     case "UPDATE_GAME":
       return updateGameState(state, action.payload);
     default:
